@@ -1,0 +1,60 @@
+.grid {
+    display: grid;
+    background-color: blue;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    margin-top: 20px;
+}
+.topContainer{
+    position: relative;
+    text-align: left;
+}
+button{
+    width: 90px;
+    height: 45px;
+    font-size: 30px;
+}
+.checkboxRead{
+    width: 50px;
+    height: 50px;
+}
+
+/*Zusammen fassen? */
+.bookTitle {
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+}
+.bookAuthor{
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+}
+.bookPages{
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+}
+
+/*Zusammen fassen? */
+.gridTitle {
+    border: .3px black solid;
+}
+.gridAuthor {
+    border: .3px black solid;
+}
+.gridPages {
+    border: .3px black solid;
+}
+.gridTitle > div {
+    border: black solid 1px;
+    font-size: 30px;
+}
+.gridAuthor > div {
+    border: black solid 1px;
+    font-size: 30px;
+}
+.gridPages > div {
+    border: black solid 1px;
+    font-size: 30px;
+}

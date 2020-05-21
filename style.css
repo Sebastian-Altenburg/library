@@ -1,9 +1,11 @@
 .grid {
     display: grid;
-    background-color: blue;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 150px);
     grid-auto-rows: auto;
     margin-top: 20px;
+}
+.grid > div{
+    background-color: rgb(80, 80, 80);
 }
 .topContainer{
     position: relative;
@@ -14,10 +16,7 @@ button{
     height: 45px;
     font-size: 30px;
 }
-.checkboxRead{
-    width: 50px;
-    height: 50px;
-}
+
 
 /*Zusammen fassen? */
 .bookTitle {
@@ -57,4 +56,30 @@ button{
 .gridPages > div {
     border: black solid 1px;
     font-size: 30px;
+}
+
+.gridRead {
+    border: .3px black solid;
+}
+.gridRead > div{
+    border: black solid 1px;
+    font-size: 30px;
+}
+.checkboxSize{
+    height: 20px;
+    width: 20px;
+}
+.childDeleteButton{
+    
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    color: black;
+    display: inline-block;
+}
+.parentDelete{
+    border: black solid 1px;
+}
+.parentDelete>div{
+    border: black solid 1px;
 }

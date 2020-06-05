@@ -62,7 +62,7 @@ function addBookToLibrary(addBook) {
 }
 function removeDivs() {
     if (parentTitle.hasChildNodes()) {
-        for(i = 0; i < parentTitle.children.length; i++) {
+        for(i = 1; i < parentTitle.children.length; i++) {
             parentTitle.removeChild(parentTitle.children[i]);
             parentAuthor.removeChild(parentAuthor.children[i]);
             parentPages.removeChild(parentPages.children[i]);

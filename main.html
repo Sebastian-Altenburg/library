@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
-    
-<div class="wholeContainer">
-    <div class="topContainer">
-        <div style="font-size: 30px">Booktitle:</div>
-        <input class="bookTitle" type="text">
-        <div style="font-size: 30px">Author:</div>
-        <input class="bookAuthor" type="text">
-        <div style="font-size: 30px">Pages:</div>
-        <input class="bookPages" type="text">
-
-        
-        
-    </div>
-    <button>Add</button>
-
-        <div class="grid">
-            <div style="font-size: 30px;" class="gridTitle">Title</div>
-            <div style="font-size: 30px;" class="gridAuthor">Author</div>
-            <div style="font-size: 30px;" class="gridPages">Pages</div>
-            <div style="font-size: 30px;" class="gridRead">Read?</div>
-            <div style="font-size: 30px;" class="parentDelete">Delete</div>
+    <h1>Book Library</h1>
+    <form autocomplete="off">
+        <div>
+            <label for="title"></label>
+            <input type="text" class="title" id="title" required placeholder="Title">  
         </div>
-</div>
         
-    
-    <script src="script.js"></script>
+        <div>
+            <label for="author"></label>
+            <input type="text" class="author" id="author" required placeholder="Author">
+        </div>
+        
+        <div>
+            <label for="pages"></label>
+            <input type="number" class="pages" id="pages" min="1" max="1000" required placeholder="Pages">
+        </div>
+
+        <div>
+            <label for="read">Read?</label>
+            <input type="checkbox" id="checkbox">
+        </div>
+
+        <div>
+            <button type="button" id="add">Add</button>
+            <button type="button" id="reset">Reset</button>
+        </div>
+    </form>
+
+    <table>
+        <caption>myLibrary</caption>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read?</th>
+            <th>Del</th>
+        </tr>
+    </table>
+
+
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,101 +1,48 @@
 
-/// Global Variables//
-let myLibrary=[];
-let addButton = document.querySelector("button");
-let deleteButton;
-///////////////////
+//// Array
+let myLibrary = [];
 
-// Selectors for parent Divs
-let parentTitle = document.querySelector(".gridTitle");
-let parentAuthor = document.querySelector(".gridAuthor");
-let parentPages = document.querySelector(".gridPages");
-let parentAlreadyRead = document.querySelector(".gridRead");
-let parentDeleteButton = document.querySelector(".parentDelete");
-///////////////////////////
-function Book(title, author, pages) {
+//////// Constructor
+function Book(title, author, pages, alreadyRead){
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.alreadyRead = alreadyRead;
 }
-////////////////////////
-addButton.addEventListener("click", ()=> {
-    //Pick input values and push them into the library Array
-    let bookTitle = document.getElementsByClassName("bookTitle")[0].value;
-    let bookAuthor = document.getElementsByClassName("bookAuthor")[0].value;
-    let bookPages = document.getElementsByClassName("bookPages")[0].value;
-    addBookToLibrary(new Book(bookTitle, bookAuthor, bookPages));
-    ///////////////////
- 
-////////Create different children for the Books
-    for (let key in myLibrary) {
-        let childTitle = document.createElement("div");
-        parentTitle.appendChild(childTitle);
-        render(myLibrary[key].title, childTitle);
-        
-        let childAuthor = document.createElement("div");
-        parentAuthor.appendChild(childAuthor);
-        render(myLibrary[key].author, childAuthor);
-        
-        let childPages = document.createElement("div");
-        parentPages.appendChild(childPages);
-        render(myLibrary[key].pages, childPages);
 
-        let childAlreadyRead = document.createElement("div");
-        let checkboxRead = document.createElement("INPUT");
-        parentAlreadyRead.appendChild(childAlreadyRead);
-        childAlreadyRead.appendChild(checkboxRead);
-        checkboxRead.setAttribute("type", "checkbox");
-        checkboxRead.classList.add("checkboxSize");
+//// Selectors ////////////////////////////////////
 
-        let childDelete = document.createElement("div");
-        deleteButton = document.createElement("input");
-        deleteButton.setAttribute("type", "button");
-        deleteButton.classList.add("childDeleteButton");
+//Form
+let titleInput = document.querySelector("#title");
+let authorInput = document.querySelector("#author");
+let pagesInput = document.querySelector("#pages");
 
-        parentDeleteButton.appendChild(childDelete);
-        childDelete.appendChild(deleteButton);
-    }
-    removeDivs();
+//Buttons
+let addButton = document.querySelector("#add");
+let resetButton = document.querySelector("#reset");
+
+let tableWhole = document.querySelector("table");
+let checkBox = document.querySelector("#checkbox");
+
+
+/////// Store the typedin values from the form to the array
+addButton.addEventListener("click", ()=>{
+  titleValue = titleInput.value;
+  authorValue = authorInput.value;
+  pagesValue = pagesInput.value;
+
+  let checkBoxValue;
+  if (checkBox.checked == true) {
+    checkBoxValue = true;
+  }
+  else if (checkBox.checked == false) {
+    checkBoxValue = false;
+  }
+
+  addBookToLibrary(new Book(titleValue, authorValue, pagesValue, checkBoxValue)); 
 });
-function addBookToLibrary(addBook) {
-    myLibrary.push(addBook);
+
+
+function addBookToLibrary(newBook) {
+  myLibrary.push(newBook);
 }
-function removeDivs() {
-    if (parentTitle.hasChildNodes()) {
-        for(i = 1; i < parentTitle.children.length; i++) {
-            parentTitle.removeChild(parentTitle.children[i]);
-            parentAuthor.removeChild(parentAuthor.children[i]);
-            parentPages.removeChild(parentPages.children[i]);
-            parentAlreadyRead.removeChild(parentAlreadyRead.children[i]);
-            parentDeleteButton.removeChild(parentDeleteButton.children[i]);
-        }
-    }
-}
-function render(template, node) {
-    if (!node) return;
-    node.innerHTML = template;
-}
-
-
-
-
-/// Need to be implemented!!!!///////////////////////////////////////////////////////////////////
-
-
-/////////////Delete book
-// deleteButton.addEventListener("click", ()=> {
-
-// });
-//////////////////////
-
-   //Check if you read the book
-/* <input class="checkboxRead" type="checkbox"></input> */
-    // if (checkBox.checked == true) {
-    //     alreadyRead = true;
-    // }else if (checkBox.checked == false){
-    //     alreadyRead = false;
-    // }
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////

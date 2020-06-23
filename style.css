@@ -1,85 +1,26 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(5, 150px);
-    grid-auto-rows: auto;
-    margin-top: 20px;
+table {
+    width: 400px;
 }
-.grid > div{
-    background-color: rgb(80, 80, 80);
-}
-.topContainer{
-    position: relative;
+th {
     text-align: left;
 }
-button{
-    width: 90px;
-    height: 45px;
-    font-size: 30px;
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
-
-
-/*Zusammen fassen? */
-.bookTitle {
-    width: 300px;
-    height: 30px;
-    font-size: 30px;
-}
-.bookAuthor{
-    width: 300px;
-    height: 30px;
-    font-size: 30px;
-}
-.bookPages{
-    width: 300px;
-    height: 30px;
-    font-size: 30px;
-}
-
-/*Zusammen fassen? */
-.gridTitle {
-    border: .3px black solid;
-}
-.gridAuthor {
-    border: .3px black solid;
-}
-.gridPages {
-    border: .3px black solid;
-}
-.gridTitle > div {
-    border: black solid 1px;
-    font-size: 30px;
-}
-.gridAuthor > div {
-    border: black solid 1px;
-    font-size: 30px;
-}
-.gridPages > div {
-    border: black solid 1px;
-    font-size: 30px;
-}
-
-.gridRead {
-    border: .3px black solid;
-}
-.gridRead > div{
-    border: black solid 1px;
-    font-size: 30px;
-}
-.checkboxSize{
+th, td {
+    padding: 3px;
     height: 20px;
-    width: 20px;
 }
-.childDeleteButton{
-    
-    height: 20px;
-    width: 20px;
-    background-color: red;
-    color: black;
-    display: inline-block;
+tr:nth-child(even){
+    background-color: blue;
 }
-.parentDelete{
-    border: black solid 1px;
+tr:nth-child(odd){
+    background-color: yellow;
 }
-.parentDelete>div{
-    border: black solid 1px;
-}
+
+
+
+
+
+

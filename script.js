@@ -1,8 +1,19 @@
 
-//// Array
-let myLibrary = [];
+// Array
+let myLibrary = new Array();
 
-//////// Constructor
+// Prototype function array, deleting empty entries
+Array.prototype.clean = function(deleteValue) {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] == deleteValue) {         
+      this.splice(i, 1);
+      i--;
+    }
+  }
+  return this;
+};
+
+// Constructor
 function Book(title, author, pages, alreadyRead){
   this.title = title;
   this.author = author;
@@ -10,7 +21,7 @@ function Book(title, author, pages, alreadyRead){
   this.alreadyRead = alreadyRead;
 }
 
-//// Selectors ////////////////////////////////////
+//// Selectors ////////////////////////
 
 //Form
 let titleInput = document.querySelector("#title");
@@ -26,7 +37,7 @@ let tableWhole = document.querySelector("table");
 let checkBox = document.querySelector("#checkbox");
 
 
-/////// Store the typedin values from the form to the array
+// Store the typedin values from the form to the array
 addButton.addEventListener("click", ()=>{
 
   let titleValue = titleInput.value;
@@ -69,10 +80,34 @@ function renderNew(element) {
 
   }
 
+
   for(i = 0; i < myLibrary.length; i++ ){
-    tableWhole.children[i+2].children[0].innerHTML = myLibrary[i].title;
-    tableWhole.children[i+2].children[1].innerHTML = myLibrary[i].author;
-    tableWhole.children[i+2].children[2].innerHTML = myLibrary[i].pages;
-    tableWhole.children[i+2].children[3].innerHTML = myLibrary[i].alreadyRead;
+
+    if(myLibrary[i] != null){
+
+      tableWhole.children[i+2].children[0].innerHTML = myLibrary[i].title;
+      tableWhole.children[i+2].children[1].innerHTML = myLibrary[i].author;
+      tableWhole.children[i+2].children[2].innerHTML = myLibrary[i].pages;
+      tableWhole.children[i+2].children[3].innerHTML = myLibrary[i].alreadyRead;
+
+    
+    
   }
+}
+  
+// Delete single entry
+  let deleteButton = document.createElement("button");
+  deleteButton.setAttribute("id", "delButton");
+
+  tableRow.children[4].appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", () => {
+
+    let rowIndex = document.querySelector(`[data-index="${itemIndex}"]`);
+    tableWhole.removeChild(rowIndex);
+    myLibrary[itemIndex] = "";
+
+    myLibrary.clean("");
+
+  });
 }

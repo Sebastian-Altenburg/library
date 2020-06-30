@@ -18,3 +18,8 @@ tr:nth-child(even){
 tr:nth-child(odd){
     background-color: yellow;
 }
+
+#delButton {
+    height: 18px;
+    width: 18px;
+}

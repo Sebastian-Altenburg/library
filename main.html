@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>Book Library</h1>
-    <form autocomplete="off">
+    <form autocomplete="off" class="hide">
         <div>
             <label for="title"></label>
-            <input type="text" class="title" id="title" required placeholder="Title">  
+            <input type="text" class="title" id="title" required placeholder="Title" >  
         </div>
         
         <div>
@@ -29,10 +29,7 @@
             <input type="checkbox" id="checkbox">
         </div>
 
-        <div>
-            <button type="button" id="add">Add</button>
-            <button type="button" id="reset">Reset</button>
-        </div>
+        <button id="submit" type="button">Submit</button>
     </form>
 
     <table>
@@ -44,8 +41,11 @@
             <th>Read?</th>
             <th>Del</th>
         </tr>
+        
     </table>
 
+        <button type="button" id="add">Add</button>
+        <button type="button" id="reset">Reset</button>
 
     <script src="script.js"></script>
 </body>

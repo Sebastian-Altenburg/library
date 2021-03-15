@@ -65,3 +65,14 @@ html {
     width: 100%;
   }
  
+
+
+  .title:invalid{
+      border: 2px dashed red;
+  }
+  .title:invalid:required{
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }
+  .title:valid {
+    border: 2px solid black;
+  }

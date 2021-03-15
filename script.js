@@ -44,6 +44,7 @@ let checkBox = document.querySelector("#checkbox");
 addButton.addEventListener("click", ()=>{
   formWhole.classList.remove("hide");
   formWhole.classList.add("show");
+  titleInput.value = "";
 });
 // Store the typedin values from the form to the array
 submitButton.addEventListener("click", ()=>{
@@ -58,15 +59,36 @@ submitButton.addEventListener("click", ()=>{
   else if (checkBox.checked == false) {
     checkBoxValue = false;
   }
-  addBookToLibrary(titleValue, authorValue, pagesValue, checkBoxValue); 
+  
+  if (titleInput.validity.valid && authorInput.validity.valid && pagesInput.validity.valid) {
+    addBookToLibrary(titleValue, authorValue, pagesValue, checkBoxValue); 
+  }
+  
+  
 });
 
 function addBookToLibrary(title, author, pages, alreadyRead) {
-
-  let newBook = new Book(title, author, pages, alreadyRead);
-  myLibrary.push(newBook);
-  renderNew(newBook);
+    let newBook = new Book(title, author, pages, alreadyRead);
+    myLibrary.push(newBook);
+    renderNew(newBook);
 }
+
+////////Custom Error Message, form validation
+//Only works on second submit?!
+
+titleInput.addEventListener("input", (event)=> {
+  if (!titleInput.validity.valid) {
+    titleInput.setCustomValidity("You need to type something in here, brother!");
+  }
+  else {
+    titleInput.setCustomValidity("");
+  }
+});
+
+////
+
+
+
 
 // Create tableRows and tableData + deleteButton
 function renderNew(element) {
